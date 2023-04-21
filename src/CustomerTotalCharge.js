@@ -4,18 +4,23 @@ import React from "react";
 
         let price = 0
         let totalCharge = 0;
+        let tax = 0
+
         for(let i = 0; i< items.length; i ++){
             console.log(`items length ${items.length} items at i ${items[i].Price}  i value ${i}`)
             if (user_state == 'DE') {
-                price+= items[i].Price;     //+ items[1].Price + items[2].Price;
-                console.log(price)
+                price+= items[i].Price;  
+                //console.log(price)
                 totalCharge = price;
-                //return totalCharge;
             }
            else if (user_state == 'NJ') {
-            
-                price += items[i].Price;
-                totalCharge = price - 10;
+                    if (items[i].type == 'everything'  || items[i].type == 'food'){
+                        tax += items[i].Price * (0.066)
+                        console.log(`include tax ${(tax).toFixed(3)}`)
+                    }
+                price += items[i].Price  ;
+                totalCharge = price + tax  ;
+
             }
 
             else if (user_state == 'PA') {
@@ -32,31 +37,29 @@ import React from "react";
         return totalCharge;
     };
 
+export const PrintTotalCharge = () => {
 
-    export const PrintTotalCharge = () => {
+    const user_state = 'PA'
+    const items = [
+        {
+            Name: 'cheese',
+            Price: 10,
+            type: 'food'
+        },
 
-        const user_state = 'PA'
-        const items = [
-            {
-                Name: 'cheese',
-                Price: 10,
-                type: 'food'
-            },
-
-            {
-                Name: 'monitor',
-                Price: 500,
-                type: 'everything',
-            },
-            {
-                Name: 'shirt',
-                Price: 20,
-                type: 'clothing'
+        {
+            Name: 'monitor',
+            Price: 500,
+            type: 'everything',
+        },
+        {
+            Name: 'shirt',
+            Price: 20,
+            type: 'clothing'
             
-            }
+        }
 
-        ]
-
+    ]
     return CustomerTotalCharge(user_state, items)
     }
     console.log(PrintTotalCharge());

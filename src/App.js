@@ -9,7 +9,7 @@ function App() {
         <div className="App">
             <h1>Capstone Heomework #1</h1>
             <h2>design with test</h2>
-            Your total Charge is: <PrintTotalCharge/>
+            Your total Charge is: $<PrintTotalCharge/>
         </div>
     );
 }
