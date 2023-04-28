@@ -1,34 +1,30 @@
+
 import React from "react";
     const CustomerTotalCharge = (user_state, items) => {
-        //user_state = ["DE", "NJ", "PA"];
-
         let price = 0
         let totalCharge = 0;
         let tax = 0
 
         for(let i = 0; i< items.length; i ++){
-            console.log(`items length ${items.length} items at i ${items[i].Price}  i value ${i}`)
             if (user_state == 'DE') {
                 price+= items[i].Price;  
-                //console.log(price)
                 totalCharge = price;
             }
            else if (user_state == 'NJ') {
-                    if (items[i].type == 'everything'  || items[i].type == 'food'){
-                        tax += items[i].Price * (0.066)
-                        console.log(`include tax ${(tax).toFixed(3)}`)
-                    }
+                if (items[i].type == 'everything'  || items[i].Name === 'fur'  ){
+                    tax += items[i].Price * (0.066)
+                    console.log(`include tax ${(tax).toFixed(3)}`)
+                }
                 price += items[i].Price  ;
-                totalCharge = price + tax  ;
-
+                totalCharge =(price + tax).toFixed(2)  ;
             }
-
             else if (user_state == 'PA') {
+                if (items[i].type == 'everything') {
+                  tax += items[i].Price * 0.06;
+                }
                 price += items[i].Price;
-                totalCharge = price + 10;
-                
-            } 
-
+                totalCharge = (price + tax).toFixed(2);  
+            }
             else {
                 console.log('wrong data');
                 return -1
@@ -38,8 +34,7 @@ import React from "react";
     };
 
 export const PrintTotalCharge = () => {
-
-    const user_state = 'PA'
+    const user_state = 'NJ'
     const items = [
         {
             Name: 'cheese',
@@ -57,9 +52,14 @@ export const PrintTotalCharge = () => {
             Price: 20,
             type: 'clothing'
             
+        },
+        {
+            Name: 'fur',
+            Price: 70,
+            type: 'clothing'
         }
 
     ]
     return CustomerTotalCharge(user_state, items)
-    }
+}
     console.log(PrintTotalCharge());
