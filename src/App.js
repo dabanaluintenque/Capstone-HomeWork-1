@@ -9,10 +9,9 @@ function App() {
       <div className="App">
         <h1>Capstone Homework #1</h1>
         <h2>Design with test</h2>
-        <p data-testid="totalCharge">
-        Your total Charge is: $
+        <div data-testid="totalCharge">
         <PrintTotalCharge />
-        </p>
+        </div>
       </div>
     );
 }

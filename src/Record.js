@@ -1,3 +1,4 @@
+// author : Dabana Intenque
 
 export const items = [
   {
@@ -22,3 +23,10 @@ export const items = [
     type: "clothing",
   },
 ];
+
+
+export const states = {
+        New_Jersey: 'NJ',
+        Delware: 'DE',
+        Pennsylvania: 'PA'
+    }

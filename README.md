@@ -1,6 +1,16 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## This Project is created by Dabana Intenque
+
+## Title `Capstone Homework #1  design with tests. `
+## The process to run this Code
+
+1 ) Make sure you have Node.js installed on your machine
+        here is how to install Node Js: https://phoenixnap.com/kb/install-node-js-npm-on-windows
+
+2) After cloning the project, navigate to the project folder
+ in your terminal and run this command
+
+### `npm install `
 
 ## Available Scripts
 
@@ -12,7 +22,6 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
 ### `npm test`
 
